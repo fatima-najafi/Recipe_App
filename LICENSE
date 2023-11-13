@@ -1,0 +1,35 @@
+MIT License
+
+Copyright (c) 2023 Fatima Najafi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+day one command: 
+# rails g model User name:string photo:string bio:text posts_counter:integer
+
+#rails generate model Like  author:references post:references text:text
+ 
+# rails generate model Post author:references{to_table:users} title:string text:text comments_counter:integer{default:0} likes_counter:integer{default:0}
+
+#  rails generate model CreateComments text:text author:references{to_table:users} post:references{to_table:posts}
+
+ the collection: @users parameter in the render method allows the partials/user partial to access and display information from the @users collection. The information flows from the @users collection to the partial, enabling you to display user-specific information for each user in the rendered output. The partial does not send any information back to the collection or modify the original @users collection.
+
+
+ https://i.pravatar.cc/300?img=11
