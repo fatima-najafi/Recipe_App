@@ -1,2 +1,38 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<main>
+  <h1><%= @recipe.name %></h1>
+  <section class="">
+    <p> Preparation Time: <%= @recipe.preparation_time %> hour </p>
+    <p> Cooking Time: <%= @recipe.cooking_time %> hour </p>
+    <p> <%= @recipe.description %> </p>
+  </section>
+  <section class="">
+    <%= link_to 'Generate Shop List', users_shopping_list_path, class: 'action_link' %>
+    <% if @recipe.user == current_user %>
+      <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'action_link' %>
+    <% end %>
+  </section>
+  <table class="">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+        <% food = recipe_food.food %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= recipe_food.quantity %></td>
+          <td><%= food.price * recipe_food.quantity %></td>
+          <td>
+            <%= link_to 'Modify', '#', class: 'action_link' %>
+            <%= link_to 'Delete', recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete, data: { confirm: 'Are you sure you want to delete this food?' }, class: 'action_link' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>

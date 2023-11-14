@@ -1,2 +1,23 @@
-<h1>RecipeFoods#new</h1>
-<p>Find me in app/views/recipe_foods/new.html.erb</p>
+<main>
+  <h1> Add new Ingredient </h1>
+  <%= form_with model: [@recipe, @recipe_food] do |form|  %>
+    <% if @recipe_food.errors.any? %>
+      <div>
+        <% @recipe_food.errors.full_messages.each do |message| %>
+          <div><%= message.inspect %></div>
+        <% end %>
+      </div>
+    <% end %>
+    <%= form.hidden_field :recipe_id, value: @recipe.id %>
+
+    <%= form.label :food_name %>
+    <%= form.collection_select :food_id, @foods, :id, :name %>
+
+    <%= form.label :ingredient_quantity %>
+    <%= form.text_field :quantity %>
+    
+    <div class="">
+      <%= form.submit 'Add Ingredient' %>
+    </div>
+  <% end %>
+</main>
