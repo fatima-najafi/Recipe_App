@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-def index
+  def index
     @foods = current_user.foods
   end
 
