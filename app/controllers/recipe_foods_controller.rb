@@ -25,8 +25,9 @@ class RecipeFoodsController < ApplicationController
       redirect_to root, notice: 'Ingredient cannot remove'
     end
   end
-  
+
   private
+
   def recipe_food_params
     params.require(:recipe_food).permit(:recipe_id, :food_id, :quantity)
   end

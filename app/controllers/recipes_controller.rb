@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-    
+
     if @recipe.save
       redirect_to recipes_path, notice: 'Recipe was created successfully'
     else
@@ -31,13 +31,10 @@ class RecipesController < ApplicationController
       redirect_to recipes_path, notice: 'Recipe cannot delete'
     end
   end
-  
 
   private
-  
+
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description)
   end
-
-  
 end
