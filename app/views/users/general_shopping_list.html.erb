@@ -1,0 +1,25 @@
+<main>
+  <h1> Shopping List </h1>
+  <section class="">
+    <p> Amount of food to buy: <%= @total_count %> </p>
+    <p> Total Value of food needed: $<%= @total_price %> </p>
+  </section>
+  <table>
+    <thead>
+      <tr>
+        <th> Food Name </th>
+        <th> Quantity </th>
+        <th> Total Price </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @missing_foods.each do |food| %>
+        <tr>
+          <td> <%= food[:name] %> </td>
+          <td> <%= food[:quantity] %> </td>
+          <td> <%= food[:price] %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>
