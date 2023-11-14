@@ -1,2 +1,30 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<h1 class="title is-flex is-justify-content-center">List of Food</h1>
+
+<div class="container" style="width: 60%;">
+  <div class="container is-flex is-justify-content-end mb-4">
+    <%= link_to "Add Food", new_food_path, class: "button is-info" %>
+  </div>
+  <div class="is-flex mt-4 mb-4">
+    <table class="table is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th class="has-text-dark-light">Food</th>
+          <th class="has-text-dark-light">Measuring Unit</th>
+          <th class="has-text-dark-light">Unit Price</th>
+          <th class="has-text-dark-light">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td> <%= food.name %></td>
+            <td> <%= food.measurement_unit %></td>
+            <td> $ <%= food.price %></td>
+            <td><%= button_to 'Delete', food_path(food.id), method: :delete, class: "button has-background-danger-light has-text-danger is-small" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
