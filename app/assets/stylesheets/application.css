@@ -13,10 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
 .shadow-gray,
 .recipe_card,
 .recipe-container {
-  box-shadow: 0px 2px 4px black;
+  box-shadow: 0 2px 4px black;
   border: 2px solid #dbdbdb;
 }
 
