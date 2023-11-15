@@ -1,8 +1,8 @@
-<main>
-  <h1> Add new Ingredient </h1>
-  <%= form_with model: [@recipe, @recipe_food] do |form|  %>
+<div class="is-flex is-justify-content-center">
+  <h1 class="title" style="margin-left: 20px;">Add new Ingredient to <%= @recipe.name %></h1>
+  <%= form_with model: [@recipe, @recipe_food], html: { class: "form" } do |form| %>
     <% if @recipe_food.errors.any? %>
-      <div>
+      <div class="error-messages">
         <% @recipe_food.errors.full_messages.each do |message| %>
           <div><%= message.inspect %></div>
         <% end %>
@@ -10,14 +10,25 @@
     <% end %>
     <%= form.hidden_field :recipe_id, value: @recipe.id %>
 
-    <%= form.label :food_name %>
-    <%= form.collection_select :food_id, @foods, :id, :name %>
+    <div class="field">
+      <%= form.label :food_name, class: "label" %>
+      <div class="control">
+        <%= form.collection_select :food_id, @foods, :id, :name, { prompt: "Select food item" }, class: "select" %>
+      </div>
+    </div>
 
-    <%= form.label :ingredient_quantity %>
-    <%= form.text_field :quantity %>
-    
-    <div class="">
-      <%= form.submit 'Add Ingredient' %>
+    <div class="field">
+      <%= form.label :ingredient_quantity, class: "label" %>
+      <div class="control">
+        <%= form.text_field :quantity, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.submit 'Add Ingredient', class: "button is-primary" %>
+      </div>
     </div>
   <% end %>
-</main>
+  </div>
+

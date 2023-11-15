@@ -1,15 +1,18 @@
 <main>
-  <h1> Shopping List </h1>
-  <section class="">
-    <p> Amount of food to buy: <%= @total_count %> </p>
-    <p> Total Value of food needed: $<%= @total_price %> </p>
-  </section>
-  <table>
+  <h1 class="title is-flex is-justify-content-center">Shopping List</h1>
+   <section class="container"  style= "width:50%;">
+     <div class="is-flex is-justify-content-space-between">
+     <strong> <p> Amount of food to buy: <%= @total_count %> </p></strong>
+     <strong> <p> Total Value of food needed: $<%= @total_price %> </p></strong>
+  </div>
+ 
+    <section class="is-flex mt-5 mb-5">
+     <table class="table is-hoverable is-fullwidth">
     <thead>
       <tr>
-        <th> Food Name </th>
-        <th> Quantity </th>
-        <th> Total Price </th>
+        <th class="has-text-dark-light">Food Name</th>
+        <th class="has-text-dark-light">Quantity</th>
+        <th class="has-text-dark-light">Total Price</th>
       </tr>
     </thead>
     <tbody>
@@ -22,4 +25,6 @@
       <% end %>
     </tbody>
   </table>
+    </section>
+      </section>
 </main>
