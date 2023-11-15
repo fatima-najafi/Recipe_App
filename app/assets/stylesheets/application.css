@@ -13,14 +13,13 @@
  *= require_tree .
  *= require_self
  */
-.shadow-gray {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  border: 2px solid #dbdbdb;
-}
+.shadow-gray,
+.recipe_card,
 .recipe-container {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px black;
   border: 2px solid #dbdbdb;
 }
+
 .form {
   margin-top: 70px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);

@@ -6,7 +6,7 @@
   </div>
 
   <% @recipes.each do |recipe| %>   
-    <div class="is-flex mt-4 mb-4 column has-background-light radius-all">
+    <div class="is-flex mt-4 mb-4 column has-background-light radius-all recipe_card">
       <div>
         <%= link_to recipe.name, recipe_path(recipe), class: "title is-5 has-text-grey is-info-dark" %>
         <% if recipe.user == current_user %>
