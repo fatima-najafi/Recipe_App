@@ -20,16 +20,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-day one command: 
-# rails g model User name:string photo:string bio:text posts_counter:integer
-
-#rails generate model Like  author:references post:references text:text
- 
-# rails generate model Post author:references{to_table:users} title:string text:text comments_counter:integer{default:0} likes_counter:integer{default:0}
-
-#  rails generate model CreateComments text:text author:references{to_table:users} post:references{to_table:posts}
-
- the collection: @users parameter in the render method allows the partials/user partial to access and display information from the @users collection. The information flows from the @users collection to the partial, enabling you to display user-specific information for each user in the rendered output. The partial does not send any information back to the collection or modify the original @users collection.
-
 
  https://i.pravatar.cc/300?img=11
+
+ <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Food
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><%= link_to 'Foods', foods_path, class: "dropdown-item" %></li>
+                  <% if user_signed_in? %> <!-- Check if the user is signed in -->
+                    <li><%= link_to 'Add New Food', new_food_path, class: "dropdown-item" %></li>
+                  <% end %>
+                </ul>
+              </li>

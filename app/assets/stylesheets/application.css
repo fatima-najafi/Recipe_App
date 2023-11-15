@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.shadow-gray,
+.recipe_card,
+.recipe-container {
+  box-shadow: 0 2px 4px black;
+  border: 2px solid #dbdbdb;
+}
+
+.form {
+  margin-top: 70px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 800px;
+  margin-left: -70px;
+}
