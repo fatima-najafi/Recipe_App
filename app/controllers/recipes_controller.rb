@@ -32,9 +32,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.change_public_status
+    redirect_to @recipe, notice: 'Recipe status has changed.'
+  end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :public, :description)
   end
 end
