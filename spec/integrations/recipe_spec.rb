@@ -19,8 +19,8 @@ RSpec.describe 'Recipe', type: :feature do
     it 'create a new recipe' do
       visit new_recipe_path
       fill_in 'Name', with: @recipe.name
-      fill_in 'Preparation time', with: @recipe.preparation_time
-      fill_in 'Cooking time', with: @recipe.cooking_time
+      fill_in 'Preparation Time (hours)', with: @recipe.preparation_time
+      fill_in 'Cooking Time', with: @recipe.cooking_time
       fill_in 'Description', with: @recipe.description
       click_button 'Create Recipe'
       expect(page).to have_content(@recipe.name)
@@ -33,7 +33,7 @@ RSpec.describe 'Recipe', type: :feature do
 
     it 'redirect to recipe show page' do
       visit recipes_path
-      click_link 'Apple'
+      click_link 'Vanilla'
       expect(current_path).to match(recipe_path(@recipe.id))
     end
 

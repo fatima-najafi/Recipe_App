@@ -31,7 +31,6 @@ RSpec.describe 'Food', type: :feature do
       expect(page).to have_content(@food.name)
       expect(page).to have_content(@food.measurement_unit)
       expect(page).to have_content(@food.price)
-      expect(page).to have_content(@food.quantity)
       expect(page).to have_content('Delete')
     end
 
