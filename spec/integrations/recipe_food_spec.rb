@@ -24,7 +24,7 @@ RSpec.describe 'Food', type: :feature do
     end
 
     it 'show remove button in recipe show page' do
-      visit recipe_recipe_foods_path(@recipe)
+      visit recipe_path(@recipe)
       expect(page).to have_content(@recipe.name)
     end
 
