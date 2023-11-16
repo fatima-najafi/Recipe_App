@@ -1,0 +1,21 @@
+<h1 class="title is-flex is-justify-content-center">List of Recipes</h1>
+
+<div class="container" style="width: 60%;">
+  <div class="container is-flex is-justify-content-end mb-4">
+    <%= link_to "Add Recipe", new_recipe_path, class: "button is-info" %>
+  </div>
+
+  <% @recipes.each do |recipe| %>   
+    <div class="is-flex mt-4 mb-4 column has-background-light radius-all recipe_card">
+      <div>
+        <%= link_to recipe.name, recipe_path(recipe), class: "title is-5 has-text-grey is-info-dark" %>
+        <% if recipe.user == current_user %>
+          <%= button_to 'Remove', recipe, method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' }, class: 'button has-text-danger-dark has-background-danger-light mt-5' %>
+        <% end %>
+      </div>
+      <div class="ml-5">
+        <p class="is-5 has-text-grey"> <%= recipe.description %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
