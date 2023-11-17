@@ -1,0 +1,17 @@
+<nav class="navbar has-background-info mb-2 p-3" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <% if current_user %>
+        <h1 class="mr-6"><strong class="has-text-white">Welcome <%= current_user.name %></strong></h1>
+        <%= link_to "Food", foods_path, class: "has-text-white px-2" %>
+        <%= link_to "Recipe", recipes_path, class: "has-text-white px-2" %>  
+        <%= link_to "Public Recipe", public_recipes_path, class: "has-text-white px-2" %>
+          <%= link_to "General Shoping List", users_general_shopping_list_path, class: "has-text-white px-2" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="navbar-end">
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { "turbo-method": :delete }, class: "button is-small is-dark" %>
+  </div>
+</nav>

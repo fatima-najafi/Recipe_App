@@ -1,0 +1,47 @@
+<h1 class="title is-flex is-justify-content-center">New Recipe</h1>
+
+<div class="container" style="width: 50%;">
+  <%= form_with model: @recipe do |f| %>
+
+    <% if @recipe.errors.any? %>
+      <div>
+        <% @recipe.errors.full_messages.each do |message| %>
+          <div><%= message.inspect %></div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= f.label :name, class: "label" %>
+      <%= f.text_field :name, required: true, class: "input" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :preparation_time, "Preparation Time (hours)", class: "label" %>
+      <%= f.number_field :preparation_time, class: "input", step: 1, required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :cooking_time, "Cooking Time (hours)", class: "label" %>
+      <%= f.number_field :cooking_time, class: "input", step: 1, required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :description, class: "label" %>
+      <%= f.text_area :description, class: "input", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :public, class: "label" %>
+      <%= f.label :public, "Yes" %>
+      <%= f.radio_button :public, true, class: "mr-4" %>
+      <%= f.label :public, "No" %>
+      <%= f.radio_button :public, false %>
+    </div>
+
+    <div>
+      <%= f.submit "Create Recipe", class: "button is-info" %>
+    </div>
+
+  <% end %>
+</div>

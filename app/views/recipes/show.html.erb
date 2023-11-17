@@ -1,0 +1,54 @@
+<main>
+  <h1 class="title is-flex is-justify-content-center"><%= @recipe.name %></h1>
+  <div class="container" style="width: 60%;">
+    <div class="is-flex is-justify-content-space-between">
+      <p class="my-3"><strong>Preparation time :</strong> <%= @recipe.preparation_time %> hours</p>
+      <div class="is-flex is-justify-content-center is-align-items-center">
+        <div class="mr-3">Public :</div>
+
+        <%= form_with model: @recipe, url: toggle_public_recipe_path(@recipe), method: :put, local: true do |form| %>
+          <div class="buttons has-addons">
+            <%= form.submit 'Yes', class: (@recipe.public == true ? 'button is-small is-dark is-light' : 'button is-small') %>
+            <%= form.submit 'No', class: (@recipe.public == false ? 'button is-small is-dark is-light' : 'button is-small') %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+    <p class="my-3"><strong>Cooking time :</strong> <%= @recipe.cooking_time %> hours</p>
+    <p class="my-3"><strong>Steps go here ...</p>
+    <div class="is-flex is-justify-content-space-between mt-3">
+      <%= link_to 'Generate Shopping List',users_general_shopping_list_path, class: "button is-info is-light" %>
+      <% if @recipe.user == current_user %>
+        <%= link_to 'Add Ingredient',new_recipe_recipe_food_path(@recipe), class: "button is-warning is-light" %>
+      <% end %>
+    </div>
+    <hr>
+
+    <div class="is-flex mt-4 mb-4">
+      <table class="table is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Measuring Unit</th>
+            <th>Value</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe.recipe_foods.each do |recipe_food| %>
+            <tr class="has-text-weight-normal">
+              <td><%= recipe_food.food.name %></td>
+              <td><%= recipe_food.food.measurement_unit %></td>
+              <td>$ <%= recipe_food.food.price * recipe_food.quantity %></td>
+              <td class="is-flex">
+                <%= button_to 'Modify', "", class: "button has-background-primary-light has-text-primary is-small p-1" %>
+                <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure you want to delete this food?' }, class: "button has-background-danger-light has-text-danger-dark is-small ml-3 p-1" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

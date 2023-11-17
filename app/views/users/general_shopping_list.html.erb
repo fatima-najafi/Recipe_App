@@ -1,0 +1,30 @@
+<main>
+  <h1 class="title is-flex is-justify-content-center">Shopping List</h1>
+   <section class="container"  style= "width:50%;">
+     <div class="is-flex is-justify-content-space-between">
+     <strong> <p> Amount of food to buy: <%= @foods.length %> </p></strong>
+     <strong> <p> Total Value of food needed: $ <%= @total %> </p></strong>
+  </div>
+ 
+    <section class="is-flex mt-5 mb-5">
+     <table class="table is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th class="has-text-dark-light">Food Name</th>
+        <th class="has-text-dark-light">Quantity</th>
+        <th class="has-text-dark-light">Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td> <%= food[:name] %> </td>
+          <td> <%= food[:quantity] %> </td>
+          <td> $ <%= food[:price] %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+    </section>
+      </section>
+</main>
